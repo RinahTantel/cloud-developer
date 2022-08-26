@@ -24,5 +24,11 @@ If running on your localhost:
 As an example go to `http://localhost:8082/filteredimage?image_url=https://www.01net.com/app/uploads/2019/11/original_images-Android.jpg`
 
 If running on Elastic Beanstalk:
-Link: ``
+Link: `http://udagram-rinah-prod-dev.us-east-1.elasticbeanstalk.com`
+
+### Access the Image Filterd Application
+
+As an example:
+Link: `http://udagram-rinah-prod-dev.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://www.01net.com/app/uploads/2019/11/original_images-Android.jpg`
+Please find a screenshot showing the result of this example in deployment_screenshot folder: `example-image-filtered.png`
 
