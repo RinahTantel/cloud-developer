@@ -1,6 +1,7 @@
-import express from 'express';
+import express, { Router, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
+import fs from 'fs';
 
 (async () => {
 
@@ -28,6 +29,39 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   //   the filtered image file [!!TIP res.sendFile(filteredpath); might be useful]
 
   /**************************************************************************** */
+  app.get("/filteredimage", async ( req: Request, res: Response) => {
+    let { image_url } = req.query;
+
+    if ( !image_url ){
+     return res.status(400)
+          .send("Image Url is required! Please put the image url.");
+    }
+
+    // Filter the image and get the promise object
+    const image:Promise<string> =  filterImageFromURL(image_url);
+    let files: string[] = []; // stock the files names to be deleted by deleteLocalFiles()
+    
+    //HTTP REQUEST
+    // handle the promise object to get the image url
+    // read the file image and display it
+    image.then(
+      function(url){ 
+        fs.readFile(url, function(error, file){
+          if(error) throw error;
+          files.push(url);
+          res.writeHead(200, {'Content-Type': 'image/jpeg'});
+          res.end(file);
+          //Comment deletLocalFiles() to display the image in src/util/temp folder
+          deleteLocalFiles(files);
+        });
+      },
+      function(error) { 
+        return res.status(404)
+                  .send(" <h1> Page not found </h1><h3>The image could not be found/processed. Please check if it's a public image</h3>");
+      }
+    )
+   
+  });
 
   //! END @TODO1
   
