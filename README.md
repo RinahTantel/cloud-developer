@@ -13,6 +13,7 @@ Please go to cloud-developer/course-02/project/image-filter-starter-code
 ## GITHUB Repo
 
 Please clone this repo: `https://github.com/RinahTantel/cloud-developer.git`
+
 Command: `git clone https://github.com/RinahTantel/cloud-developer.git`
 
 ## Access the project
@@ -28,14 +29,15 @@ You'll need to run Node to access it locally
 ### Access the application
 
 If running on your localhost:
+
 As an example go to `http://localhost:8082/filteredimage?image_url=https://www.01net.com/app/uploads/2019/11/original_images-Android.jpg`
 
 If running on Elastic Beanstalk:
 Link: `http://udagram-rinah-prod-dev.us-east-1.elasticbeanstalk.com`
 
-### Access the Image Filterd Application
+### Access the Image Filtered Application
 
-As an example:
 Link: `http://udagram-rinah-prod-dev.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://www.01net.com/app/uploads/2019/11/original_images-Android.jpg`
+
 Please find a screenshot showing the result of this example in deployment_screenshot folder: `example-image-filtered.png`
 
