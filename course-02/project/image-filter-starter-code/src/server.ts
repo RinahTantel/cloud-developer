@@ -56,8 +56,8 @@ import fs from 'fs';
         });
       },
       function(error) { 
-        return res.status(404)
-                  .send(" <h1> Page not found </h1><h3>The image could not be found/processed. Please check if it's a public image</h3>");
+        return res.status(422)
+                  .send(" <h1> File not found </h1><h3>The image could not be found/processed. Please check if it's a public image</h3>");
       }
     )
    
